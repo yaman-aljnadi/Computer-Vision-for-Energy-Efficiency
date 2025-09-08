@@ -1,0 +1,14 @@
+
+            None  Garage  House  Other  Propane  Trailer  Background
+None           0       0      0      0        0        0           0
+Garage         0      39     14      0        0        1           8
+House          0       8    251      2        0        1           7
+Other          0       2      5     11        0        0           0
+Propane        0       0      0      0      145        0          50
+Trailer        0       0      1      0        0       31           5
+Background     0      21     31     14       32       10           0
+
+
+
+
+
