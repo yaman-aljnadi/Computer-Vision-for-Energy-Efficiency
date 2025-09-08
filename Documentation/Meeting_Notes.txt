@@ -1,0 +1,13 @@
+What are the updates: 
+* - Fixed the propane tanks issue 
+* - Still trying to fix the MMdetection training issue 
+* - Still trying to find the actual pixel size 
+
+Questions to ask:
+* - What is the subject and how are we going to approach writing the research paper?
+* - Paper publishing order and authors - Adnan, Yaman, Ashraf, Ana. Ack --> Zoe, David, Osama
+* - What is the expected publishing time? 
+
+Figure out the area pixel, 
+keep trying to fix the largest model otherwise explain why
+Go over more buildings and see how the models will behave. 
