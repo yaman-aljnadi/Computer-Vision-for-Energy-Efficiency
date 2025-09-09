@@ -1,0 +1,6 @@
+train: /home/data/files/Yaman/Satalite_Images/Sandbox/yolov11_Propane/train/images/
+val: /home/data/files/Yaman/Satalite_Images/Sandbox/yolov11_Propane/valid/images/
+test: /home/data/files/Yaman/Satalite_Images/Sandbox/yolov11_Propane/test/images/
+
+nc: 1
+names: ['Propane']
