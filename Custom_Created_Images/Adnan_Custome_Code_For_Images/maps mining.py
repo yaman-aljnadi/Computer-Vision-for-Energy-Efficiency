@@ -5,7 +5,7 @@ Waskishl
 
 import requests
 
-api_key = "AIzaSyBnuSYPHgNdunNlVVKwhWqMaRzv-Ox7k7k"
+api_key = "#"
 url = "https://maps.googleapis.com/maps/api/staticmap?"
 zoom = str(18)
 scale = str(2)
