@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names: ['Garage', 'House', 'Other', 'Propane', 'Trailer']
+
+roboflow:
+  workspace: yolotococo-wcdqe
+  project: satellite_images_original_fix_t
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/yolotococo-wcdqe/satellite_images_original_fix_t/dataset/2
