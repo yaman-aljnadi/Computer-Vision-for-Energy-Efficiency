@@ -1,6 +1,6 @@
 <div align="center">
 
-  [**Setup**](#Setup) | [**Models**](Docs/Models.md)
+  <h1>[**Models**](Docs/Models.md)</h1>
   
 </div>
 
@@ -35,14 +35,9 @@ Models and Architectures Used
 
 So we should have 12 models in general, but unfortunatly duo to the lack of computional resources we couldn't train the Enhanced images version with the MMDetection so that leaves us with only 10 models. 
 
-
-# Setup
-```Python 3.9.21``` 
-```pip install requirments.txt```
-
-
-
 # Results
+
+
 
 # Computer-Vision-for-Energy-Efficiency
 This project explores the use of computer vision techniques to improve energy efficiency analysis through satellite image segmentation. By using deep learning architectures, image enhancement methods, and data augmentation, we aim to evaluate how different dataset variants and model choices affect segmentation performance.
