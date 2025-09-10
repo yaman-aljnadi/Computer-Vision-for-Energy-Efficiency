@@ -1,3 +1,9 @@
+<div align="center">
+  [** Models **] | [** [Setup](Requiremtns and Tools) **]
+  
+  
+</div>
+
 # Describtion 
 This projects looks into building and identifiing what is the best model that can be used for segmenting houses and similar objects from satellite images, there are three images and object detection models architicures used in this project along with 4 augemntaions techniques to generate the images, so in total we would have 12 trained models, and then we can analyze which one would be the best for segmentaiotn. This thing even will help us to look into how the models would behave with the augmentation, pre-processing, and enhancemnt. Also trying to identify how different architictures behaves with the different augmentations.
 
@@ -15,7 +21,7 @@ Models and Architectures Used
 
 
 
-# Requiremtns and Tools
+# Setup
 ```Python 3.9.21```
 ```pip install requirments.txt```
 
