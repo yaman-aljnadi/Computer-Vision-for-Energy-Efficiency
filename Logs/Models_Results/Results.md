@@ -1,4 +1,4 @@
-# For YOLO LOGS AND CONFUSION MATRIX PLEASE REFER TO [YOLOv11](..Seg_Logs/Yolov11)
+# For YOLO LOGS AND CONFUSION MATRIX PLEASE REFER TO [YOLOv11](./Seg_Logs/Yolov11)
 
 # Confusion Matrix of Bounding Boxes
 
