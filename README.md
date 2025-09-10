@@ -36,8 +36,8 @@ Models and Architectures Used
 So we should have 12 models in general, but unfortunatly duo to the lack of computional resources we couldn't train the Enhanced images version with the MMDetection so that leaves us with only 10 models. 
 
 # Results
-Excell Results including Percision, Recall, mAP, ...etc. [here](Logs/Models_Results/) </br>
-Confusion Matrix of all models. [here](Logs/Models_Results/Results.md)
+Excell Results including Percision, Recall, mAP, ...etc. [[here]](Logs/Models_Results/) </br>
+Confusion Matrix of all models. [[here]](Logs/Models_Results/Results.md)
 
 
 # Computer-Vision-for-Energy-Efficiency
