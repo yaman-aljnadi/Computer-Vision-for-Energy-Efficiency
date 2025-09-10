@@ -1,6 +1,6 @@
 <div align="center">
-  [** Models **] | [Setup](#Setup) 
-  
+
+  [Setup](#Setup)
   
 </div>
 
