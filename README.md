@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>[**Models**](Docs/Models.md)</h1>
+  # [**Models**](Docs/Models.md)
   
 </div>
 
