@@ -1,7 +1,6 @@
 | YOlOv11                                                                                                                          | Detectron2 | MMDetection |
 | ------------------------------------------------------------------------------------------------------------------------------- | :---- | :------------------------------------------- |
-| [RealESRGAN_x4plus](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth)                      | X4    | X4 model for general images                  |
-| [RealESRGAN_x2plus](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth)                      | X2    | X2 model for general images                  |
-| [RealESRNet_x4plus](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/RealESRNet_x4plus.pth)                      | X4    | X4 model with MSE loss (over-smooth effects) |
-| [official ESRGAN_x4](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.1/ESRGAN_SRx4_DF2KOST_official-ff704c30.pth) | X4    | official ESRGAN model                        |
-| [realesr-general-x4v3](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-general-x4v3.pth) | X4 (can also be used for X1, X2, X3) |  |
+| [Yolov11x_Seg_Aug_Original](https://drive.google.com/file/d/12F1XIeVovfG79lOD4IgVvM6ucmWFNCK-/view?usp=sharing) | X4    | X4 model for general images                  |
+| [Yolov11x_Seg_Aug_Greyscale](https://drive.google.com/file/d/18MiqZMpjvYdn4TUQW9csl_Mhl3eSNI3U/view?usp=sharing) | X2    | X2 model for general images                  |
+| [Yolov11x_Seg_Aug_Enhanced](https://drive.google.com/file/d/1GSvrojohIP8OHly1HRnYUFVJAh8vpLhU/view?usp=sharing)  | X4    | X4 model with MSE loss (over-smooth effects) |
+| [Yolov11x_Seg_Aug_Enhanced_Greyscale](https://drive.google.com/file/d/15fHk8sFz0g_0dz60amg7Oc-4xOKrkL7g/view?usp=sharing) | X4    | official ESRGAN model  |
