@@ -1,5 +1,5 @@
 <div align="center">
-  [** Models **] | [** [Setup](#Setup) **] 
+  [** Models **] | [** [Setup](#Setup) **] [Install](#-dependencies-and-installation)
   
   
 </div>
