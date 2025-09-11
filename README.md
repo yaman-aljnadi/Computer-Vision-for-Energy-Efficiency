@@ -1,7 +1,7 @@
 <div align="center">
 
 # Computer Vision for Energy Efficiency  
-**Satellite Image Segmentation for Roofs, Garages, Trailers & Propane Tanks**
+**Satellite Image Segmentation for Houses, Garages, Trailers & Propane Tanks**
 
 [**Models**](Docs/Models.md) • [**Full Results**](Docs/Results.md) • [**Logs**](Logs/Models_Results/)
 
