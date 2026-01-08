@@ -1,0 +1,3 @@
+object_id,class_id,class_name,bbox,area_m2,area_ft2,score,file
+0,1,Garage,[ 966.81635  948.262   1089.5728  1066.8192 ],173.18637175,1864.160786879825,0.884252667427063,"78473 Bear Lake Rd, Town of Chippewa.png"
+2,1,Garage,[1079.9573 1135.5817 1167.291  1245.7689],125.22345675,1347.8927661113248,0.26882362365722656,"78473 Bear Lake Rd, Town of Chippewa.png"

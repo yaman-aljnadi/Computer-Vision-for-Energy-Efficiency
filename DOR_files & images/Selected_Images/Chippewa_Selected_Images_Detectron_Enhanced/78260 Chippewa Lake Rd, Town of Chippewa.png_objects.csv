@@ -1,0 +1,3 @@
+object_id,class_id,class_name,bbox,area_m2,area_ft2,score,file
+0,2,House,[ 974.42004  992.4791  1111.1371  1098.4052 ],163.1074515,1755.67229720085,0.9826105237007141,"78260 Chippewa Lake Rd, Town of Chippewa.png"
+1,1,Garage,[875.6299  751.09094 956.9723  885.19965],171.459036,1845.5679176003998,0.9817854762077332,"78260 Chippewa Lake Rd, Town of Chippewa.png"

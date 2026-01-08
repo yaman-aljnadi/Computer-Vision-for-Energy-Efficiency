@@ -1,0 +1,3 @@
+object_id,class_id,class_name,bbox,area_m2,area_ft2,score,file
+0,1,Garage,[ 978.42694  957.04065 1063.0438  1062.393  ],139.98127675,1506.744464809325,0.954981803894043,"12049 Stangle Rd, Town of Chippewa.png"
+1,2,House,[ 287.28598 1378.2089   430.1119  1422.7913 ],90.97860625,979.284619814375,0.5853694081306458,"12049 Stangle Rd, Town of Chippewa.png"

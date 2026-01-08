@@ -1,0 +1,3 @@
+object_id,class_id,class_name,bbox,area_m2,area_ft2,score,file
+0,1,Garage,[ 973.6252  956.4894 1071.6625 1041.5941],74.929477,806.5333974803,0.8615018725395203,"14687 Wagner Vogt Rd, Town of Chippewa.png"
+1,2,House,[147.46165 744.358   259.26782 954.20233],233.508961,2513.4671053079,0.6927249431610107,"14687 Wagner Vogt Rd, Town of Chippewa.png"
