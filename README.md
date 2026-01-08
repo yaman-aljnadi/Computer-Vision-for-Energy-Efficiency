@@ -1,68 +1,100 @@
 <div align="center">
 
-# Computer Vision for Energy Efficiency  
-**Satellite Image Segmentation for Houses, Garages, Trailers & Propane Tanks**
+# A Vision-Based Framework for Extracting Building Stock Characteristics from Satellite Imagery
+### Supporting Energy Modeling in Data-Sparse Regions
 
-[**Models**](Docs/Models.md) • [**Full Results**](Docs/Results.md) • [**Logs**](Logs/Models_Results/)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)](A_Vision_Based_Framework_for_Extracting_Building_Stock_Characteristics_from_Satellite_Imagery_to_Support_Energy_Modeling.docx.pdf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Frameworks](https://img.shields.io/badge/YOLOv11-Detectron2-MMDetection-blue)](Docs/Models.md)
+
+[**Methodology**](#methodology) • [**Key Results**](#results) • [**Installation**](#installation) • [**Citation**](#citation)
 
 </div>
 
-## Overview
-This project builds and compares instance/semantic segmentation models to accurately segment houses and related structures in satellite imagery. The goal is to enable reliable **roof area estimation** for downstream **electrical load and energy-efficiency analysis**.
+---
 
-## Dataset
-- **Images:** 470 labeled satellite images  
-- **Classes:** `House`, `Garage`, `Trailer`, `Propane`, `Other`
-- **Variants (generated):**
-  - Original **1280×1280** color (+ augmentation)
-  - Original **1280×1280** grayscale (+ augmentation)
-  - ESRGAN-enhanced **2048×2048** color (+ augmentation)
-  - ESRGAN-enhanced **2048×2048** grayscale (+ augmentation)
+## 📖 Overview
+ This repository contains the official implementation and data for the study: **"A Vision-Based Framework for Extracting Building Stock Characteristics from Satellite Imagery to Support Energy Modeling."**
 
-**Augmentations:** horizontal/vertical flips, grayscale; (roadmap adds rotations, color jitter, blur, cutout).  
-**Enhancement:** [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/tree/master)
+Building Stock Energy Modeling (BSEM) often suffers from data gaps, particularly in rural areas where assessor records are incomplete. This project utilizes deep learning and satellite imagery to automatically extract key building characteristics required for energy modeling:
+1.  **Building Footprint Area:** Via instance segmentation.
+2.  **Building Type:** Categorizing Single-Family vs. Manufactured Homes.
+3.  **Heating Fuel Proxy:** Detecting external propane tanks to infer non-gas heating.
+4.  **Garage Presence:** Associating detached garages with the nearest home.
 
-## Models & Frameworks
-We target 12 combinations (3 frameworks × 2 input sizes × color/grayscale).  
-Due to compute limits, MMDetection on 2048 variants is pending (10 models trained so far).
+## 🖼️ Dataset
+The dataset focuses on rural and cold-climate regions of the northern United States, specifically tailored for BSEM applications.
 
-| Framework    | Architecture / Checkpoint                       | Input | Color | Status |
-|--------------|--------------------------------------------------|-------|-------|--------|
-| YOLOv11      | `yolo11x-seg.pt`                                 | 1280  | RGB   | ✅     |
-| YOLOv11      | `yolo11x-seg.pt`                                 | 1280  | Gray  | ✅     |
-| YOLOv11      | `yolo11x-seg.pt`                                 | 2048  | RGB   | ✅     |
-| YOLOv11      | `yolo11x-seg.pt`                                 | 2048  | Gray  | ✅     |
-| Detectron2   | Mask R-CNN `X_101_32x8d_FPN_3x`                  | 1280  | RGB   | ✅     |
-| Detectron2   | Mask R-CNN `X_101_32x8d_FPN_3x`                  | 1280  | Gray  | ✅     |
-| Detectron2   | Mask R-CNN `X_101_32x8d_FPN_3x`                  | 2048  | RGB   | ✅     |
-| Detectron2   | Mask R-CNN `X_101_32x8d_FPN_3x`                  | 2048  | Gray  | ✅     |
-| MMDetection  | Mask R-CNN `x101-64x4d_FPN_2x`                   | 1280  | RGB   | ✅     |
-| MMDetection  | Mask R-CNN `x101-64x4d_FPN_2x`                   | 1280  | Gray  | ✅     |
-| MMDetection  | Mask R-CNN `x101-64x4d_FPN_2x`                   | 2048  | RGB   | ⏳     |
-| MMDetection  | Mask R-CNN `x101-64x4d_FPN_2x`                   | 2048  | Gray  | ⏳     |
+* **Source:** Google Maps Satellite Tiles (Zoom Level 18).
+* **Size:** 490 labeled images ($1280 \times 1280$), augmented to **1,100 images**.
+* **Classes:** `Single-Family Home`, `Manufactured Home (Trailer)`, `Detached Garage`, `Propane Tank`.
+* **Enhancements:** * **Grayscale Conversion:** To test computational efficiency.
+    * **ESRGAN (Super-Resolution):** Upscaling to $2048 \times 2048$ to improve small object detection (propane tanks).
 
-> Detailed configs per framework live in [`configs/`](configs/).
+## 🏗️ Methodology & Models
+We evaluated three state-of-the-art frameworks across four dataset variants (Original RGB, Grayscale, ESRGAN RGB, ESRGAN Grayscale).
 
-## Results (summary)
-A full breakdown (precision, recall, mAP50, mAP50-95, per-class IoU, confusion matrices) is in  
-👉 [`Docs/Results.md`](Docs/Results.md) and raw logs in [`Logs/Models_Results/`](Logs/Models_Results/).
+### The Pipeline
+The project implements an integrated workflow that combines segmentation, detection, and spatial association:
+1.  **Segmentation:** Extract building masks and calculate real-world footprint area ($m^2$).
+2.  **Detection:** Identify propane tanks (small objects).
+3.  **Integration:** Use Euclidean distance to associate tanks and garages with the nearest residential structure.
 
-| Model (short) | Input | Color | mAP50-95 | mAP50 | Precision | Recall | Mean IoU | Notes |
-|---|---:|:---:|---:|---:|---:|---:|---:|---|
-| D2-X101-FPN | 2048 | RGB | 0.xx | 0.xx | 0.xx | 0.xx | 0.xx | best recall on Propane |
-| YOLO11x-seg | 1280 | RGB | 0.xx | 0.xx | 0.xx | 0.xx | 0.xx | fastest inference |
-| MMDet-X101 | 1280 | Gray | 0.xx | 0.xx | 0.xx | 0.xx | 0.xx | robust to lighting |
+![Workflow Pipeline](Docs/assets/workflow_pipeline.png)
+*(Figure 5 from the paper: The integrated data extraction pipeline)*
 
-> Replace `0.xx` with your numbers or auto-render from `experiments/runs.csv`.
+### Model Configurations Evaluated
 
-## Reproducing Results
+| Framework | Architecture | Task | Best For |
+| :--- | :--- | :--- | :--- |
+| **YOLOv11** | `yolo11x-seg` | Unified | Fast inference, balanced performance. |
+| **Detectron2** | Mask R-CNN `X_101_32x8d_FPN_3x` | Detection | **Best Propane Detection** (Small objects). |
+| **MMDetection** | Mask R-CNN `x101-64x4d_FPN_2x` | Segmentation | **Best Building Segmentation** & Footprint estimation. |
 
-### Environment
+> **Note:** MMDetection training on ESRGAN ($2048 \times 2048$) images was omitted due to GPU memory constraints.
+
+## 📊 Results
+
+### 1. Propane Tank Detection (Heating Fuel Proxy)
+Propane tanks are small and difficult to detect. We found that **Image Super-Resolution (ESRGAN)** combined with **Grayscale** inputs yielded the highest accuracy using Detectron2.
+
+| Model | Input | Precision | Recall | F1-Score | mAP 50 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Detectron2** | **Grayscale + ESRGAN** | **0.828** | **0.930** | **0.876** | **0.894** |
+| YOLOv11 | ESRGAN | 0.934 | 0.750 | 0.832 | 0.894 |
+| Detectron2 | Grayscale (Low Compute) | 0.888 | 0.828 | 0.857 | 0.802 |
+
+### 2. Building Segmentation & Categorization
+For building footprints, **MMDetection** on original resolution imagery outperformed super-resolution techniques.
+
+| Model | Input | Precision | Recall | F1-Score | mAP 50 | mAP 50-95 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **MMDetection** | **Original RGB** | **0.601** | **0.718** | **0.654** | **0.741** | **0.641** |
+| Detectron2 | ESRGAN | 0.542 | 0.762 | 0.633 | 0.734 | 0.637 |
+| YOLOv11 | ESRGAN | 0.642 | 0.679 | 0.660 | 0.648 | 0.572 |
+
+* **Single-Family Homes:** The best model achieved an **mAP50 of 0.955** for this specific class.
+* **Footprint Accuracy:** Comparison with assessor data for 20 homes showed an average error of only **5.46%**.
+
+### Visual Results
+![Visual Results](Docs/assets/results_example.png)
+*(Figure 6 from the paper: Integrated outputs showing segmentation, propane detection, and association in diverse densities)*
+
+## 💻 Installation & Usage
+
+### Prerequisites
+* Python 3.8+
+* PyTorch (CUDA recommended)
+
+### Setup
 ```bash
-# Option A: conda
-conda env create -f environment.yml
-conda activate cv-energy
+# Clone the repository
+git clone [https://github.com/yaman-aljnadi/Computer-Vision-for-Energy-Efficiency.git](https://github.com/yaman-aljnadi/Computer-Vision-for-Energy-Efficiency.git)
+cd Computer-Vision-for-Energy-Efficiency
 
-# Option B: pip
-python -m venv .venv && source .venv/bin/activate
+# Create a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
